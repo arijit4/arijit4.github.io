@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>My githup page - About</title>
+    <script src="Scripts/AboutHandler.js"></script>
+</head>
+
+<body>
+    <header>
+        <button onclick="parent.open('index.html', '_self')">Home</button>
+        <!--        <button>Projects</button>-->
+        <button onclick="parent.open('about.html', '_self')">About</button>
+        <button onclick="parent.open('https://github.com/ArijitPaulDip')">Github</button>
+    </header>
+    <!--
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+-->
+    <h1 id="about-header">Do you really wanna know about me?</h1>
+
+    <div id="answer-sheet">
+        <form>
+            <input type="text" id="answer" name="fname" placeholder="Your answer here..."><br>
+        </form>
+        <input id="submit" type="submit" onclick="clicked()" value="Submit">
+    </div>
+    <p id="reply"></p>
+</body>
+
+</html>
