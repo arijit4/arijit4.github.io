@@ -26,9 +26,11 @@ class Mover {
 
     move() {
         this.run();
-        this.pos.add(this.vel);
-        this.vel.add(this.acc);
-        this.acc.mult(0);
+        if (dist(this.pos.x, this.pos.y, this.target.x, this.target.y) > 0.1 || this.acc.mag() > 0.1) {
+            this.pos.add(this.vel);
+            this.vel.add(this.acc);
+            this.acc.mult(0);
+        }
     }
 
     applyForce(f) {
@@ -39,8 +41,7 @@ class Mover {
         let arrive = this.arrive(this.target);
         let mouse = createVector(mouseX, mouseY);
         let flee = this.flee(mouse);
-
-        arrive.mult(1);
+        
         flee.mult(5);
 
         this.applyForce(arrive);
@@ -62,8 +63,7 @@ class Mover {
 
     flee(target) {
         let desired = p5.Vector.sub(target, this.pos);
-        let d = desired.mag();
-        if (d < 60) {
+        if (desired.mag() < 60) {
             desired.setMag(this.maxSpeed);
             desired.mult(-1);
             let steer = p5.Vector.sub(desired, this.vel);
